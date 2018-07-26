@@ -1,0 +1,20 @@
+{
+  "name": "flywi/yii2-ueditor",
+  "description": "UEditor for Yii2",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Flywi",
+      "email": "woflowin@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Flywi\\Editor\\": "src/"
+    }
+  },
+  "require": {
+    "yiisoft/yii2": "^2.0.14"
+  }
+}
