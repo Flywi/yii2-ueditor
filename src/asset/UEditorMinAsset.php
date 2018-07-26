@@ -1,12 +1,12 @@
 <?php
 
-namespace Flywi\Editor\phpAsset;
+namespace Flywi\Editor\asset;
 
 use yii\web\AssetBundle;
 
 class UEditorMinAsset extends AssetBundle
 {
-    public $sourcePath = '@UEditorAsset' . '/source';
+    public $sourcePath = '@UEditorAsset';
 
     public $js = [
         'ueditor.config.js',

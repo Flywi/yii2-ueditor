@@ -2,10 +2,11 @@
 
 namespace Flywi\Editor;
 
-use Flywi\Editor\phpAsset\UEditorAsset;
-use Flywi\Editor\phpAsset\UEditorMinAsset;
+use Flywi\Editor\asset\UEditorAsset;
+use Flywi\Editor\asset\UEditorMinAsset;
 use Yii;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\InputWidget;
 
@@ -99,6 +100,9 @@ class UEditor extends InputWidget
      */
     protected function resolveConfig()
     {
+        // add serveUrl
+        $this->_defaultConfig['serverUrl'] =  Url::to('/editor');
+
         if (empty($this->_editorName)) {
             $this->_editorName = '_ueditor' . $this->getId();
         }
@@ -119,7 +123,7 @@ class UEditor extends InputWidget
      */
     protected function registerAlias()
     {
-        Yii::setAlias('@UEditorAsset', __DIR__ . '/asset');
+        Yii::setAlias('@UEditorAsset', __DIR__ . '/resource');
     }
 
     /**
