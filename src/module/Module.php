@@ -30,7 +30,6 @@ class Module extends YiiModule
      * @var array
      */
     private $defaultActionMap = [
-        'config' => '/editor/config/index',
         'uploadimage' => Upload::class,
     ];
 
@@ -50,6 +49,10 @@ class Module extends YiiModule
     {
         $config = require_once(__DIR__ . '/config/ueditor.php');
         $this->editorConfig = array_merge($config, $this->editorConfig);
-        $this->actionMap = array_merge($this->defaultActionMap, $this->actionMap);
+        $this->actionMap = array_merge(
+            $this->defaultActionMap,
+            $this->actionMap,
+            ['config' => '/editor/config/index',]
+        );
     }
 }
