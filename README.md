@@ -22,7 +22,20 @@ $ php composer.phar require flywi/yii2-ueditor "@dev"
 ```php
     'modules' => [
         ....
-        'editor' => ['class' => \Flywi\Editor\module\Module::class]
+               'editor' => [
+                   'class' => \Flywi\Editor\module\Module::class,
+                   'actionMap' => [
+                      // $config为后端配置
+                      'uploadimage' => function(\yii\web\UploadedFile $file ,$config){
+                         ...
+                      }
+                   ],
+                   'editorConfig' => [
+                       "imageActionName" => "uploadimage", /* 执行上传图片的action名称 */
+                       "imageFieldName" => "upfileimage", /* 提交的图片表单名称 */
+                       // 其他Ueditor后端配置
+                   ],
+               ]
     ],
 ```
 在`ActiveForm`中使用:

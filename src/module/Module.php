@@ -2,6 +2,7 @@
 
 namespace Flywi\Editor\module;
 
+use Flywi\Editor\module\components\Upload;
 use yii\base\Module as YiiModule;
 
 class Module extends YiiModule
@@ -15,13 +16,22 @@ class Module extends YiiModule
      * @var string
      */
     public $defaultRoute = 'index/index';
-
     /**
      * @var array
      */
     public $actionMap = [
+
+    ];
+    /**
+     * @var array
+     */
+    public $editorConfig = [];
+    /**
+     * @var array
+     */
+    public $defaultActionMap = [
         'config' => '/editor/config/index',
-        'uploadimage' => '/editor/upload/index'
+        'uploadimage' => Upload::class,
     ];
 
     /**
@@ -29,14 +39,17 @@ class Module extends YiiModule
      */
     public function init()
     {
-        $this->prepare();
         parent::init();
+        $this->prepare();
     }
 
     /**
      * prepare
      */
-    public function prepare(){
-
+    public function prepare()
+    {
+        $config = require_once(__DIR__ . '/config/ueditor.php');
+        $this->editorConfig = array_merge($config, $this->editorConfig);
+        $this->actionMap = array_merge($this->defaultActionMap, $this->actionMap);
     }
 }
