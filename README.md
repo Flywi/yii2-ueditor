@@ -32,6 +32,7 @@ echo $form->field($model, 'content')->widget(\Flywi\Editor\UEditor::class, [
     'id' => 'contentID',
     'config' => [
       // Ueditor的部分配置
+      'serverUrl' => Url:to('..editor') // 对应于modules中editor的url
     ]
 ]);
 ...
@@ -44,6 +45,7 @@ echo \Flywi\Editor\UEditor::widget([
         'id' => 'contentId',
         'config' => [
            // Ueditor的部分配置
+             'serverUrl' => Url:to('..editor') // 对应于modules中editor的url
         ]
  ]);
 ...
