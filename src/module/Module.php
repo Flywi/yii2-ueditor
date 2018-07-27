@@ -29,7 +29,7 @@ class Module extends YiiModule
     /**
      * @var array
      */
-    public $defaultActionMap = [
+    private $defaultActionMap = [
         'config' => '/editor/config/index',
         'uploadimage' => Upload::class,
     ];
