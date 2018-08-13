@@ -25,7 +25,6 @@ $ php composer.phar require flywi/yii2-ueditor "@dev"
                'editor' => [
                    'class' => \Flywi\Editor\module\Module::class,
                    'actionMap' => [
-                      // $config为后端配置
                       'uploadimage' => function(\yii\web\UploadedFile $file ,$config){
                          ...
                       }
